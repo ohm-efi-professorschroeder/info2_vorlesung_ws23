@@ -32,3 +32,7 @@ add_executable(05_callbacks Termin_05/callbacks.c)
 add_executable(06_namesarchive
         Termin_06/namesarchive.c
         Termin_06/main.c)
+
+add_executable(07_namesarchive_dynamic
+        Termin_07/namesarchive.c
+        Termin_07/main.c)
