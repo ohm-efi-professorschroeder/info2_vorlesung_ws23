@@ -19,7 +19,7 @@ int addPerson(const Person newPerson)
 
 int removePerson(const Person person)
 {
-    // TODO
+    // Stellen Sie sich hier eine tolle Implementierung vor!!
 
     return 0;
 }
