@@ -43,4 +43,9 @@ add_executable(08_namesarchive_structs
 add_executable(08_callbyreference
         Termin_08/callByReference.c)
 
+add_executable(09_namesarchive_lists
+        Termin_09/namesarchive.c
+        Termin_09/stringlist.c
+        Termin_09/main.c)
+
 add_executable(99_test test.c)
