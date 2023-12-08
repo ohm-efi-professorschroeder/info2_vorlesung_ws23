@@ -48,4 +48,6 @@ add_executable(09_namesarchive_lists
         Termin_09/stringlist.c
         Termin_09/main.c)
 
-add_executable(99_test test.c)
+add_executable(10_namesarchive_bst Termin_10/main.c
+        Termin_10/namesarchive.c
+        Termin_10/stringbst.c)

@@ -79,7 +79,14 @@ void printList(StringListNode_t const* head)
 
 StringListNode_t* findString(StringListNode_t* head, StringListNode_t** previous, const char *string)
 {
-    return NULL;
+    *previous = NULL;
+    while(head != NULL && strcmp(head->string, string) != 0)
+    {
+        *previous = head;
+        head = head->next;
+    }
+
+    return head;
 }
 
 void freeNode(StringListNode_t** node)
