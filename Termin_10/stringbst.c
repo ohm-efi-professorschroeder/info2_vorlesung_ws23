@@ -73,7 +73,44 @@ StringBSTNode_t* findMin(StringBSTNode_t* root)
 
 StringBSTNode_t* delete(StringBSTNode_t *root, const char* string)
 {
-    // TODO
+    if(root == NULL)
+        return NULL;
+
+    if(strcmp(string, root->string) < 0)
+    {
+        root->left = delete(root->left, string);
+    }
+    else if(strcmp(string, root->string) > 0)
+    {
+        root->right = delete(root->right, string);
+    }
+    else
+    {
+        // Knoten hat ein oder kein Kind
+        if(root->left == NULL)
+        {
+            // rechts löschen
+            StringBSTNode_t *tmp = root->right;
+            freeNode(&root);
+            return tmp;
+        }
+        else if(root->right == NULL)
+        {
+            // links löschen
+            StringBSTNode_t *tmp = root->left;
+            freeNode(&root);
+            return tmp;
+        }
+        else
+        {
+            // Nachfolgerwert kopieren und im rechten Teilbaum löschen
+            StringBSTNode_t *tmp = findMin(root->right);
+            char *tmpString = root->string;
+            root->string = tmp->string;
+            tmp->string = tmpString;
+            root->right = delete(root->right, tmp->string);
+        }
+    }
     return root;
 }
 
