@@ -11,7 +11,7 @@ BmpErrorType getLastError()
 
 void showContent(const BmpData *bmpData)
 {
-
+    // TODO
 }
 
 void clearBmpData(BmpData *bmpData)
@@ -40,6 +40,7 @@ void clearBmpData(BmpData *bmpData)
  */
 static BmpErrorType readBmpHeader(FILE *file, BmpData *bmpData, unsigned int *offsetToImageData)
 {
+    // TODO
 
     return NO_ERROR;
 }
@@ -50,6 +51,8 @@ static BmpErrorType readBmpHeader(FILE *file, BmpData *bmpData, unsigned int *of
  */
 static BmpErrorType readBmpData(FILE *file, unsigned int offset, BmpData *bmpData)
 {
+    // TODO
+
     return NO_ERROR;
 }
 
