@@ -22,7 +22,9 @@ static int removeEntryAt(unsigned int idx)
     if(idx >= numberOfNames)
         return 0;
 
-    memmove(archive+idx, archive+idx+1, sizeof(archive[0]) * (numberOfNames - idx - 1));
+    //memmove(archive+idx, archive+idx+1, sizeof(archive[0]) * (numberOfNames - idx - 1));
+    for(int i = idx; i < numberOfNames; i++)
+        archive[i] = archive[i+1];
 
     numberOfNames--;
 

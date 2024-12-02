@@ -66,3 +66,5 @@ file(COPY ${CMAKE_CURRENT_LIST_DIR}/Termin_11/namesarchive/names.txt
         DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 add_executable(12_santa Termin_12/main.c
         Termin_12/bst.c)
+
+add_executable(99_test test.c)

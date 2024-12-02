@@ -40,32 +40,31 @@ int pushBack(StringListNode_t** head, const char* string)
     }
 
     // Liste nicht leer
-    StringListNode_t * tempNode = *head;
+    StringListNode_t* tempNode = *head;
     while(tempNode->next != NULL)
         tempNode = tempNode->next;
     tempNode->next = newNode;
+    newNode->prev = tempNode;
 
     return 1;
 }
 
-void removeFirst(StringListNode_t** head)
+void removeNode(StringListNode_t** head, StringListNode_t* node)
 {
-    if(*head != NULL)
-    {
-        StringListNode_t *temp = (*head)->next;
-        free(*head);
-        *head = temp;
-    }
-}
+    if(node == NULL)
+        return;
 
-void removeAfter(StringListNode_t *node)
-{
-    if(node != NULL && node->next != NULL)
-    {
-        StringListNode_t *temp = node->next->next;
-        free(node->next);
-        node->next = temp;
-    }
+    StringListNode_t *next = node->next;
+    StringListNode_t *prev = node->prev;
+
+    if (next)
+        next->prev = prev;
+    if (prev)
+        prev->next = next;
+    if (*head == node)
+        *head = next;
+
+    freeNode(&node);
 }
 
 void printList(StringListNode_t const* head)
@@ -77,12 +76,10 @@ void printList(StringListNode_t const* head)
     }
 }
 
-StringListNode_t* findString(StringListNode_t* head, StringListNode_t** previous, const char *string)
+StringListNode_t* findString(StringListNode_t* head, const char *string)
 {
-    *previous = NULL;
     while(head != NULL && strcmp(head->string, string) != 0)
     {
-        *previous = head;
         head = head->next;
     }
 
